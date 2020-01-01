@@ -19,6 +19,6 @@ images=$(cat docker-compose-staging.yml | grep 'image: ' | cut -d':' -f 2 | tr -
 for image in $images
 do
     eval image=${image}
-    docker tag ${image}:${COMMIT_ID} ${image}:latest
-    docker push ${image}:latest
+    docker tag ndujay/${image}:${COMMIT_ID} ndujay/${image}:latest
+    docker push ndujay/${image}:latest
 done
