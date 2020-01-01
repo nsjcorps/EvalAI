@@ -50,6 +50,7 @@ script:
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 - coveralls --rcfile=.coveragerc
+- ./scripts/deployment/push.sh
 deploy:
   provider: script
   script: bash ./scripts/deployment/docker_push.sh
