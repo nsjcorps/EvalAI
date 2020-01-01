@@ -2,7 +2,7 @@ version: "3"
 services:
 
   django:
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/evalai-staging-backend:${COMMIT_ID}
+    image: ndujay/evalai-staging-backend:${COMMIT_ID}
     env_file:
       - docker/prod/docker_staging.env
     build:
@@ -12,7 +12,7 @@ services:
       - "8000:8000"
 
   celery:
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/evalai-staging-celery:${COMMIT_ID}
+    image: ndujay/evalai-staging-celery:${COMMIT_ID}
     env_file:
       - docker/prod/docker_staging.env
     build:
@@ -22,7 +22,7 @@ services:
       - django
 
   worker:
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/evalai-staging-worker:${COMMIT_ID}
+    image: ndujay/evalai-staging-worker:${COMMIT_ID}
     build:
       context: ./
       dockerfile: docker/prod/worker/Dockerfile
@@ -30,7 +30,7 @@ services:
       - docker/prod/docker_staging.env
 
   nodejs:
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/evalai-staging-frontend:${COMMIT_ID}
+    image: ndujay/evalai-staging-frontend:${COMMIT_ID}
     build:
       context: ./
       dockerfile: docker/prod/nodejs/Dockerfile
@@ -44,7 +44,7 @@ services:
       - /code/bower_components
 
   remote-worker:
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/evalai-staging-remote-worker:${COMMIT_ID}
+    image: ndujay/evalai-staging-remote-worker:${COMMIT_ID}
     build:
       context: ./
       dockerfile: docker/prod/worker/Dockerfile
