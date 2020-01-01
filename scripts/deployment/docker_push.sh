@@ -5,4 +5,5 @@ echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 docker pull ubuntu
 docker images
 docker build -t ndujay/evalai-image:${COMMIT_ID} .
-docker push nsjcorps/test-lamp-server
+docker tag ndujay/evalai-image:${COMMIT_ID} ndujay/evalai-image:latest
+docker push nsjcorps/evalai-image
