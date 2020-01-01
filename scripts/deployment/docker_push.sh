@@ -1,4 +1,4 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker build -t ndujay/evalai-image[:evalai-image]
+docker build -t ndujay/evalai-image:evalai-image
 docker push ndujay/evalai-image:evalai-image
