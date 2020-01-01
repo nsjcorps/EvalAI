@@ -55,7 +55,7 @@ deploy:
   provider: script
   script: bash ./scripts/deployment/docker_push.sh
   on:
-    branch: master
+    branch: spike-test
 notifications:
   email:
     on_success: change
