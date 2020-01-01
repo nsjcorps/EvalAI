@@ -53,7 +53,7 @@ after_success:
 - ./scripts/deployment/push.sh
 deploy:
   provider: script
-  script: bash docker_push
+  script: bash ./scripts/deployment/docker_push.sh
   on:
     branch: master
 notifications:
