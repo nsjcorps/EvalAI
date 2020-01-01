@@ -10,8 +10,8 @@ build_and_push() {
         aws s3 cp s3://cloudcv-secrets/evalai/${TRAVIS_BRANCH}/ssl/ ./ssl/ --recursive
         aws s3 cp s3://cloudcv-secrets/evalai/${TRAVIS_BRANCH}/nginx_${TRAVIS_BRANCH}.conf ./docker/prod/nodejs/nginx_${TRAVIS_BRANCH}.conf
         echo "Pulled ssl certificates and nginx configuration successfully"
-        docker-compose -f docker-compose-$1.yml build
-        docker-compose -f docker-compose-$1.yml push
+        docker-compose -f docker-compose-staging.yml build
+        docker-compose -f docker-compose-staging.yml push
 
         # Get already built docker images
         images=$(cat docker-compose-$1.yml | grep 'image: ' | cut -d':' -f 2 | tr -d '"')
