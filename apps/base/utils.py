@@ -30,7 +30,7 @@ def paginated_queryset(
     queryset, request, pagination_class=PageNumberPagination()
 ):
     """
-        Return a paginated result for a queryset
+        Returns a paginated result for a queryset
     """
     paginator = pagination_class
     paginator.page_size = settings.REST_FRAMEWORK["PAGE_SIZE"]
@@ -102,7 +102,7 @@ def send_email(
     Keyword Arguments:
         sender {string} -- Email of sender (default: {settings.TEAM_EMAIL})
         recepient {string} -- Recepient email address
-        template_id {string} -- Sendgrid template id
+        template_id {string} -- SendGrid template id
         template_data {dict} -- Dictionary to substitute values in subject and email body
     """
     try:

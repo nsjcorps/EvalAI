@@ -249,7 +249,7 @@ delete_service_args = """
 
 def client_token_generator():
     """
-    Returns a 32 characters long client token to ensure idempotency with create_service boto3 requests.
+    Returns a 32 character-long client token to ensure idempotency with create_service boto3 requests.
 
     Parameters: None
 
@@ -273,7 +273,7 @@ def register_task_def_by_challenge_pk(client, queue_name, challenge):
     challenge (<class 'challenges.models.Challenge'>): The challenge object for whom the task definition is being registered.
 
     Returns:
-    dict: A dict of the task definition and it's ARN if succesful, and an error dictionary if not
+    dict: A dict of the task definition and it's ARN if successful, and an error dictionary if not
     """
     container_name = "worker_{}".format(queue_name)
     execution_role_arn = COMMON_SETTINGS_DICT["EXECUTION_ROLE_ARN"]
